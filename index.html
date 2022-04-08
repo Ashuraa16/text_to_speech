@@ -1,0 +1,57 @@
+<!doctype html>
+	<head>
+		<style>
+			/* CSS comes here */
+			body {
+			    font-family:arial;
+			}
+			input {
+			    padding: 10px;
+			    width: 300px;
+			    border-radius: 5px;
+			    border: solid 2px #BBB;
+			}
+			div {
+			    margin:10px 0px;
+			}
+			button {
+			    padding:10px;
+			    background-color:#6a67ce;
+			    color: #FFFFFF;
+			    border: 0px;
+			    cursor:pointer;
+			    border-radius: 5px;
+			}
+			#image-speech{
+				display: inline-block;
+			}
+		</style>
+		<title>Pure JavaScript Text to Audio</title>
+	</head>
+	<body>
+	    <h2>JavaScript Text to Speech</h2>
+		<!-- <div><input type="text" id="text-to-speech" placeholder="Enter text to speak..."/></div> -->
+        <div><textarea type="text" id="text-to-speech" placeholder="Enter text to speak..." rows = "40" cols = "80" name = "description">Enter text to speak...
+         </textarea></div>
+        <div><button type="button" onclick="textToAudio()">Speak</button></div>
+        <br/>
+		<!-- <img id="image-speech" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxAzAl_8o_33g42yGoLbokWuZ8YlkKSR8qU4hQLQ-L4HfrGV0chbDMGTV5GVIu7DWvqFc&usqp=CAU" alt="text to speech"> -->
+        <div><small><b>NOTE:</b> Enter text and click on speak button.</small></div>
+		<script>
+			/* JS comes here */
+            function textToAudio() {
+                let msg = document.getElementById("text-to-speech").value;
+                
+                let speech = new SpeechSynthesisUtterance();
+                speech.lang = "en-US";
+                
+                speech.text = msg;
+                speech.volume = 1;
+                speech.rate = 1;
+                speech.pitch = 1;
+                
+                window.speechSynthesis.speak(speech);
+            }
+		</script>
+	</body>
+</html> 
